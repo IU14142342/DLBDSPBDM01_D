@@ -75,7 +75,7 @@ ALTER TABLE public.ausleihdauer OWNER TO postgres;
 -- Name: TABLE ausleihdauer; Type: COMMENT; Schema: public; Owner: postgres
 --
 
-COMMENT ON TABLE public.ausleihdauer IS 'Stammdaten fÔö£ÔòØr LeihzeitrÔö£├▒ume (in Tagen) zur Standardisierung.';
+COMMENT ON TABLE public.ausleihdauer IS 'Stammdaten für Leihzeitraeume (in Tagen) zur Standardisierung.';
 
 
 --
@@ -125,7 +125,7 @@ COMMENT ON TABLE public.ausleihvorgang IS 'Historisiert Ausleihen inkl. Zeitraum
 -- Name: COLUMN ausleihvorgang.rueckgabe_am; Type: COMMENT; Schema: public; Owner: postgres
 --
 
-COMMENT ON COLUMN public.ausleihvorgang.rueckgabe_am IS 'NULL = Ausleihe offen; gesetzt = RÔö£ÔòØckgabe erfolgt.';
+COMMENT ON COLUMN public.ausleihvorgang.rueckgabe_am IS 'NULL = Ausleihe offen; gesetzt = Rueckgabe erfolgt.';
 
 
 --
@@ -166,7 +166,7 @@ ALTER TABLE public.autor OWNER TO postgres;
 -- Name: TABLE autor; Type: COMMENT; Schema: public; Owner: postgres
 --
 
-COMMENT ON TABLE public.autor IS 'Stammdaten fÔö£ÔòØr Autoren; wird von buch referenziert.';
+COMMENT ON TABLE public.autor IS 'Stammdaten fuer Autoren; wird von buch referenziert.';
 
 
 --
@@ -207,14 +207,14 @@ ALTER TABLE public.benutzer OWNER TO postgres;
 -- Name: TABLE benutzer; Type: COMMENT; Schema: public; Owner: postgres
 --
 
-COMMENT ON TABLE public.benutzer IS 'Speichert registrierte Nutzer inkl. Rolle und Ort; Soft-Delete via is_active.';
+COMMENT ON TABLE public.benutzer IS 'Speichert registrierte Nutzer inkl. Rolle und Ort -  Soft-Delete-Mechanismus is_active.';
 
 
 --
 -- Name: COLUMN benutzer.is_active; Type: COMMENT; Schema: public; Owner: postgres
 --
 
-COMMENT ON COLUMN public.benutzer.is_active IS 'Soft-Delete Flag: TRUE aktiv, FALSE deaktiviert; Historie bleibt erhalten.';
+COMMENT ON COLUMN public.benutzer.is_active IS 'Soft-Delete: TRUE aktiv, FALSE deaktiviert -  Historie bleibt erhalten.';
 
 
 --
@@ -292,14 +292,14 @@ ALTER TABLE public.buch OWNER TO postgres;
 -- Name: TABLE buch; Type: COMMENT; Schema: public; Owner: postgres
 --
 
-COMMENT ON TABLE public.buch IS 'Zentrale EntitÔö£├▒t fÔö£ÔòØr angebotene BÔö£ÔòØcher inkl. Metadaten (Genre, Sprache, Zustand, Status) und Anbieter.';
+COMMENT ON TABLE public.buch IS 'Entitaet fuer angebotene Buecher inkl. Metadaten (Genre, Sprache, Zustand, Status) und Anbieter.';
 
 
 --
 -- Name: COLUMN buch.is_active; Type: COMMENT; Schema: public; Owner: postgres
 --
 
-COMMENT ON COLUMN public.buch.is_active IS 'Soft-Delete Flag: TRUE aktiv, FALSE deaktiviert.';
+COMMENT ON COLUMN public.buch.is_active IS 'Soft-Delete: TRUE aktiv, FALSE deaktiviert.';
 
 
 --
@@ -332,7 +332,7 @@ ALTER TABLE public.genre OWNER TO postgres;
 -- Name: TABLE genre; Type: COMMENT; Schema: public; Owner: postgres
 --
 
-COMMENT ON TABLE public.genre IS 'Stammdaten fÔö£ÔòØr Buchgenres zur Kategorisierung und Suche.';
+COMMENT ON TABLE public.genre IS 'Stammdaten fuer Buchgenres zur Kategorisierung und Suche.';
 
 
 --
@@ -351,7 +351,7 @@ ALTER TABLE public.lieferart OWNER TO postgres;
 -- Name: TABLE lieferart; Type: COMMENT; Schema: public; Owner: postgres
 --
 
-COMMENT ON TABLE public.lieferart IS 'Stammdaten fÔö£ÔòØr Ôö£┬úbergabe-/Lieferarten (Abholung, Versand, etc.).';
+COMMENT ON TABLE public.lieferart IS 'Stammdaten fuer Uebergabe-/Lieferarten (Abholung, Versand, etc.).';
 
 
 --
@@ -370,7 +370,7 @@ ALTER TABLE public.sprache OWNER TO postgres;
 -- Name: TABLE sprache; Type: COMMENT; Schema: public; Owner: postgres
 --
 
-COMMENT ON TABLE public.sprache IS 'Stammdaten fÔö£ÔòØr Buchsprachen zur Filterung.';
+COMMENT ON TABLE public.sprache IS 'Stammdaten fuer Buchsprachen zur Filterung.';
 
 
 --
@@ -389,7 +389,7 @@ ALTER TABLE public.status OWNER TO postgres;
 -- Name: TABLE status; Type: COMMENT; Schema: public; Owner: postgres
 --
 
-COMMENT ON TABLE public.status IS 'Stammdaten fÔö£ÔòØr Buchstatus (z.B. verfÔö£ÔòØgbar, ausgeliehen).';
+COMMENT ON TABLE public.status IS 'Stammdaten fuer Buchstatus (z.B. verfuegbar, ausgeliehen).';
 
 
 --
@@ -408,7 +408,7 @@ ALTER TABLE public.zustand OWNER TO postgres;
 -- Name: TABLE zustand; Type: COMMENT; Schema: public; Owner: postgres
 --
 
-COMMENT ON TABLE public.zustand IS 'Stammdaten fÔö£ÔòØr BuchzustÔö£├▒nde; genutzt fÔö£ÔòØr Transparenz vor/nach Ausleihe.';
+COMMENT ON TABLE public.zustand IS 'Stammdaten fuer Buchzustaende; genutzt fuer Transparenz vor/nach Ausleihe.';
 
 
 --
@@ -466,14 +466,14 @@ ALTER TABLE public.rezension OWNER TO postgres;
 -- Name: TABLE rezension; Type: COMMENT; Schema: public; Owner: postgres
 --
 
-COMMENT ON TABLE public.rezension IS 'Bewertungen/Kommentare zu BÔö£ÔòØchern; pro Nutzer und Buch nur einmal (Unique Constraint).';
+COMMENT ON TABLE public.rezension IS 'Bewertungen/Kommentare zu Buechern; pro Nutzer und Buch nur einmal.';
 
 
 --
 -- Name: COLUMN rezension.bewertung; Type: COMMENT; Schema: public; Owner: postgres
 --
 
-COMMENT ON COLUMN public.rezension.bewertung IS 'Bewertung 1..5; CHECK Constraint erzwingt Wertebereich.';
+COMMENT ON COLUMN public.rezension.bewertung IS 'Bewertung 1..5; CHECK Constraint erzwingt den Bereich.';
 
 
 --
@@ -522,7 +522,7 @@ ALTER TABLE public.lieferant OWNER TO postgres;
 -- Name: TABLE lieferant; Type: COMMENT; Schema: public; Owner: postgres
 --
 
-COMMENT ON TABLE public.lieferant IS 'Stammdaten fÔö£ÔòØr Lieferanten/Carrier.';
+COMMENT ON TABLE public.lieferant IS 'Stammdaten fuer Lieferanten.';
 
 
 --
@@ -541,7 +541,7 @@ ALTER TABLE public.lieferant_abholort OWNER TO postgres;
 -- Name: TABLE lieferant_abholort; Type: COMMENT; Schema: public; Owner: postgres
 --
 
-COMMENT ON TABLE public.lieferant_abholort IS 'Zuordnungstabelle: welcher Lieferant bedient welchen Abholort (n:m).';
+COMMENT ON TABLE public.lieferant_abholort IS 'Zuordnungstabelle: welcher Lieferant macht welchen Abholort.';
 
 
 --
@@ -590,7 +590,7 @@ ALTER TABLE public.ort OWNER TO postgres;
 -- Name: TABLE ort; Type: COMMENT; Schema: public; Owner: postgres
 --
 
-COMMENT ON TABLE public.ort IS 'Stammdaten fÔö£ÔòØr Orte (Stadt/PLZ) zur geografischen Zuordnung.';
+COMMENT ON TABLE public.ort IS 'Stammdaten fuer Orte (Stadt/PLZ) zur ssrtlichen Zuordnung.';
 
 
 --
@@ -665,7 +665,7 @@ ALTER TABLE public.verlag OWNER TO postgres;
 -- Name: TABLE verlag; Type: COMMENT; Schema: public; Owner: postgres
 --
 
-COMMENT ON TABLE public.verlag IS 'Stammdaten fÔö£ÔòØr Verlage; wird von buch referenziert.';
+COMMENT ON TABLE public.verlag IS 'Stammdaten fuer Verlage, wird von buch referenziert.';
 
 
 --
@@ -701,16 +701,16 @@ ALTER TABLE public.zustand ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
 --
 
 COPY public.abholort (id, adresse, ort_id) FROM stdin;
-1	Bibliothek Mitte, Hauptstra├öoe┬ú├ú├åe 1	1
+1	Bibliothek Mitte, Hauptstrasse 1	1
 2	Bibliothek Nord, Hafenweg 12	2
-3	Bibliothek S├öoe┬ú├ö├▓├ÿd, Platz 3	3
+3	Bibliothek Sued, Platz 3	3
 4	Bibliothek West, Ring 99	4
 5	InfoPoint Zentrum, Allee 5	5
 6	InfoPoint Nord, Uniweg 10	6
-7	InfoPoint, S├öoe┬ú├ö├▓├ÿd	7
+7	InfoPoint, Sued	7
 8	InfoPoint, West	8
 9	InfoPoint Ost, Elbweg 4	9
-10	Servicepoint, Bahnhofstra├öoe┬ú├ú├åe 8	10
+10	Servicepoint, Bahnhofstrasse 8	10
 \.
 
 
@@ -773,16 +773,16 @@ COPY public.autor (id, vorname, nachname) FROM stdin;
 --
 
 COPY public.benutzer (id, vorname, nachname, email, passwort, adresse, ort_id, benutzerrolle_id, is_active, created_at) FROM stdin;
-1	Anna	M├öoe┬ú├ö├▓├ÿller	anna.mueller@example.com	hash$anna	Musterweg 1	1	2	t	2026-02-15 01:13:23.284147+01
+1	Anna	Mueller	anna.mueller@example.com	hash$anna	Musterweg 1	1	2	t	2026-02-15 01:13:23.284147+01
 2	Tom	Schmidt	tom.schmidt@example.com	hash$tom	Beispielstr 2	2	2	t	2026-02-15 01:13:23.284147+01
 3	Lisa	Weber	lisa.weber@example.com	hash$lisa	Ring 3	3	2	t	2026-02-15 01:13:23.284147+01
 4	Mark	Fischer	mark.fischer@example.com	hash$mark	Allee 4	4	3	t	2026-02-15 01:13:23.284147+01
 5	Sara	Klein	sara.klein@example.com	hash$sara	Park 5	5	2	t	2026-02-15 01:13:23.284147+01
 6	Jan	Wolf	jan.wolf@example.com	hash$jan	Weg 6	6	6	t	2026-02-15 01:13:23.284147+01
 7	Nina	Becker	nina.becker@example.com	hash$nina	Gasse 7	7	5	t	2026-02-15 01:13:23.284147+01
-8	Paul	Hoffmann	paul.hoffmann@example.com	hash$paul	Stra├öoe┬ú├ú├åe 8	8	2	t	2026-02-15 01:13:23.284147+01
+8	Paul	Hoffmann	paul.hoffmann@example.com	hash$paul	Strasse 8	8	2	t	2026-02-15 01:13:23.284147+01
 9	Mia	Schulz	mia.schulz@example.com	hash$mia	Platz 9	9	2	t	2026-02-15 01:13:23.284147+01
-10	Leon	Kr├öoe┬ú├ö├▓├ÿger	leon.krueger@example.com	hash$leon	Hof 10	10	4	t	2026-02-15 01:13:23.284147+01
+10	Leon	Krueger	leon.krueger@example.com	hash$leon	Hof 10	10	4	t	2026-02-15 01:13:23.284147+01
 \.
 
 
@@ -809,11 +809,11 @@ COPY public.benutzerrolle (id, bezeichnung) FROM stdin;
 --
 
 COPY public.buch (id, titel, erscheinungsjahr, isbn, anbieter_benutzer_id, genre_id, sprache_id, zustand_id, status_id, autor_id, ausleihdauer_id, verlag_id, is_active, created_at) FROM stdin;
-1	Der gro├öoe┬ú├ú├åe Roman	2010-01-01	978-0000000001	1	1	1	2	1	1	3	1	t	2026-02-15 01:17:53.366437+01
-2	K├öoe┬úÔö£├®lner Kriminalfall	2012-06-15	978-0000000002	2	2	1	3	1	2	2	2	t	2026-02-15 01:17:53.366437+01
-3	Sterne ├öoe┬ú├ö├▓├ÿber Europa	2018-03-10	978-0000000003	3	3	2	4	1	3	4	3	t	2026-02-15 01:17:53.366437+01
+1	Der grosse Roman	2010-01-01	978-0000000001	1	1	1	2	1	1	3	1	t	2026-02-15 01:17:53.366437+01
+2	Koelner Kriminalfall	2012-06-15	978-0000000002	2	2	1	3	1	2	2	2	t	2026-02-15 01:17:53.366437+01
+3	Sterne ueber Europa	2018-03-10	978-0000000003	3	3	2	4	1	3	4	3	t	2026-02-15 01:17:53.366437+01
 4	Drachenwald	2016-11-20	978-0000000004	4	4	1	3	1	4	5	4	t	2026-02-15 01:17:53.366437+01
-5	Wirtschaft einfach erkl├öoe┬úÔö£ÔûÆrt	2020-02-02	978-0000000005	5	5	1	2	1	5	6	5	t	2026-02-15 01:17:53.366437+01
+5	Wirtschaft einfach erklaert	2020-02-02	978-0000000005	5	5	1	2	1	5	6	5	t	2026-02-15 01:17:53.366437+01
 6	Das Leben von X	2014-09-09	978-0000000006	6	6	1	4	1	6	1	6	t	2026-02-15 01:17:53.366437+01
 7	Kinder entdecken die Welt	2019-05-05	978-0000000007	7	7	1	2	1	7	7	7	t	2026-02-15 01:17:53.366437+01
 8	Jugend im Wandel	2017-07-07	978-0000000008	8	8	2	5	1	8	8	8	t	2026-02-15 01:17:53.366437+01
@@ -853,7 +853,7 @@ COPY public.lieferant (id, name) FROM stdin;
 6	FedEx
 7	LocalCourier One
 8	CityLogistik
-9	B├öoe┬ú├ö├▓├ÿcherbote GmbH
+9	Buecherbote GmbH
 10	ExpressNow
 \.
 
@@ -884,7 +884,7 @@ COPY public.lieferart (id, bezeichnung) FROM stdin;
 1	Abholung
 2	Lieferung Standard
 3	Lieferung Express
-4	├öoe┬úÔö¼├║bergabe vor Ort
+4	Uebergabe vor Ort
 5	Kontaktlos
 6	Paketstation
 7	Abholung Wochenende
@@ -901,11 +901,11 @@ COPY public.lieferart (id, bezeichnung) FROM stdin;
 COPY public.ort (id, stadt, plz) FROM stdin;
 1	Berlin	10115
 2	Hamburg	20095
-3	M├öoe┬ú├ö├▓├ÿnchen	80331
-4	K├öoe┬úÔö£├®ln	50667
+3	Muenchen	80331
+4	Koeln	50667
 5	Frankfurt am Main	60311
 6	Stuttgart	70173
-7	D├öoe┬ú├ö├▓├ÿsseldorf	40213
+7	Duesseldorf	40213
 8	Leipzig	4109
 9	Dresden	1067
 10	Hannover	30159
@@ -920,10 +920,10 @@ COPY public.rezension (id, kommentar, bewertung, benutzer_id, buch_id, created_a
 1	Spannend und gut geschrieben.	5	2	1	2026-02-15 01:18:38.514536+01
 2	Solide Story, etwas lang.	4	3	2	2026-02-15 01:18:38.514536+01
 3	Tolle Ideen, gutes Tempo.	5	5	3	2026-02-15 01:18:38.514536+01
-4	Sehr atmosph├öoe┬úÔö£ÔûÆrisch.	4	8	4	2026-02-15 01:18:38.514536+01
-5	N├öoe┬ú├ö├▓├ÿtzlich, aber trocken.	3	9	5	2026-02-15 01:18:38.514536+01
-6	Ber├öoe┬ú├ö├▓├ÿhrend, empfehlenswert.	5	10	6	2026-02-15 01:18:38.514536+01
-7	Perfekt f├öoe┬ú├ö├▓├ÿr Kinder.	5	1	7	2026-02-15 01:18:38.514536+01
+4	Sehr atmosphaerisch.	4	8	4	2026-02-15 01:18:38.514536+01
+5	Nuetzlich, aber trocken.	3	9	5	2026-02-15 01:18:38.514536+01
+6	Beruehrend, empfehlenswert.	5	10	6	2026-02-15 01:18:38.514536+01
+7	Perfekt fuer Kinder.	5	1	7	2026-02-15 01:18:38.514536+01
 8	Guter Einstieg ins Thema.	4	4	8	2026-02-15 01:18:38.514536+01
 9	Richtig fesselnd!	5	6	9	2026-02-15 01:18:38.514536+01
 10	Historisch interessant.	4	7	10	2026-02-15 01:18:38.514536+01
@@ -938,14 +938,14 @@ COPY public.rezension (id, kommentar, bewertung, benutzer_id, buch_id, created_a
 COPY public.sprache (id, sprache) FROM stdin;
 1	Deutsch
 2	Englisch
-3	Franz├öoe┬úÔö£├®sisch
+3	Franzoesisch
 4	Spanisch
 5	Italienisch
-6	Niederl├öoe┬úÔö£ÔûÆndisch
+6	Niederlaendisch
 7	Schwedisch
 8	Norwegisch
 9	Polnisch
-10	T├öoe┬ú├ö├▓├ÿrkisch
+10	Tuerkisch
 \.
 
 
@@ -954,13 +954,13 @@ COPY public.sprache (id, sprache) FROM stdin;
 --
 
 COPY public.status (id, status) FROM stdin;
-1	Verf├öoe┬ú├ö├▓├ÿgbar
+1	Verfuegbar
 2	Ausgeliehen
 3	Reserviert
-4	Nicht verf├öoe┬ú├ö├▓├ÿgbar
-5	In Pr├öoe┬ú├ö├▓├ÿfung
+4	Nicht verfuegbar
+5	In Pruefung
 6	Verloren
-7	Besch├öoe┬úÔö£ÔûÆdigt
+7	Beschaedigt
 8	Im Versand
 9	Zur Abholung bereit
 10	Archiviert
@@ -980,7 +980,7 @@ COPY public.verlag (id, name) FROM stdin;
 6	Zeta Verlagshaus
 7	Omega Editions
 8	Nordlicht Verlag
-9	S├öoe┬ú├ö├▓├ÿdstern Books
+9	Suedstern Books
 10	Hanseatische Presse
 \.
 
@@ -997,8 +997,8 @@ COPY public.zustand (id, zustand) FROM stdin;
 5	Akzeptabel
 6	Stark gebraucht
 7	Mit Markierungen
-8	Kleine Sch├öoe┬úÔö£ÔûÆden
-9	Starke Sch├öoe┬úÔö£ÔûÆden
+8	Kleine Schaeden
+9	Starke Schaeden
 10	Unleserlich
 \.
 

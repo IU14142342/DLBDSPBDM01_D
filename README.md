@@ -1,8 +1,8 @@
-# DLBDSPBDM01_D - Buchaustauschplattform
+# DLBDSPBDM01_D - Buchtausch-Plattform
 
 ## 1. Projektübersicht
 
-Dieses Projekt implementiert eine relationale Datenbank für eine Buchaustauschplattform.
+Dieses Projekt implementiert eine relationale Datenbank für eine Buchtausch-Plattform.
 
 
 ## 2. Funktionsumfang
